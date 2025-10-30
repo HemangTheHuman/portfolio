@@ -17,7 +17,7 @@ export function About() {
           <div className="flex justify-center">
             <div className="w-full max-w-md">
               <ImageWithFallback
-                src="src/components/images/20240609234626858.jpg"
+                src="https://github.com/HemangTheHuman/portfolio/blob/a6d612ea4b8b6af2e03e10417b2b1cd60dc2a690/src/components/images/20240609234626858.jpg"
                 alt="Profile"
                 className="w-full h-auto rounded-lg shadow-2xl"
               />
