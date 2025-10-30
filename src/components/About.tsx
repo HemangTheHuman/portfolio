@@ -1,46 +1,64 @@
-import { motion } from "framer-motion";
-export const About = () => {
+import { Download } from 'lucide-react';
+import { ImageWithFallback } from './figma/ImageWithFallback';
+import { Button } from './ui/button';
+
+export function About() {
   return (
-    <section id="about" className="section-padding bg-gradient-to-br from-background via-secondary/5 to-background">
-      <div className="max-w-4xl mx-auto">
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.5 }}
-          viewport={{ once: true }}
-        >
-          {/* Container for centering text */}
-          <div className="flex flex-col items-center justify-center text-center">
-            <span className="text-sm text-primary/80 uppercase tracking-[0.2em] font-medium">
-              About Me
-            </span>
-            <h2 className="text-3xl md:text-4xl font-bold mt-4 mb-8 bg-gradient-to-r from-primary via-primary/90 to-primary/80 bg-clip-text text-transparent">
-              Quick Introduction
-            </h2>
+    <section id="about" className="py-20 bg-slate-900">
+      <div className="container mx-auto px-4">
+        {/* Section Header */}
+        <div className="text-center mb-16">
+          <h2 className="text-yellow-500 mb-2 tracking-wider">ABOUT ME</h2>
+          <div className="w-20 h-1 bg-yellow-500 mx-auto"></div>
+        </div>
+
+        <div className="grid md:grid-cols-2 gap-12 items-center max-w-6xl mx-auto">
+          {/* Profile Image */}
+          <div className="flex justify-center">
+            <div className="w-full max-w-md">
+              <ImageWithFallback
+                src="src/components/images/20240609234626858.jpg"
+                alt="Profile"
+                className="w-full h-auto rounded-lg shadow-2xl"
+              />
+            </div>
           </div>
-   
-          <div className="space-y-6 text-muted-foreground leading-relaxed">
-            <p className="text-lg">
-              I’m Hemang Joshi, an AI Engineer passionate about building intelligent, end-to-end automation systems.
-              I recently completed my final semester project internship at ISRO–NRSC, where I worked in the field of Data Engineering and Data Science and authored a research paper on the same. Currently, I’m freelancing with a local startup as an AI Engineer — a journey I began even before my time at ISRO.
-            </p>
-            <p className="text-lg">
-              My expertise spans across frameworks and tools like Flask, Django, Kafka, AWS, Azure, TensorFlow, OpenCV, Hugging Face, Ollama, and OpenAI, with Python and JavaScript as my primary languages.
-              I've contributed to solutions across multiple industries including Healthcare AI, LegalTech, Automation, Drone Tech, FinTech, and DevOps. I specialize in building scalable AI-powered systems that integrate and automate complete pipelines — from data ingestion to model deployment.
-            </p>
-            <p className="text-lg">
-              I'm actively seeking development roles that challenge me and provide opportunities to grow both technically and personally.
-            </p>
+
+          {/* Info */}
+          <div className="text-gray-300">
+            <h3 className="text-white mb-2">Hi There! I'm Hemang Joshi</h3>
+            <div className="text-yellow-500 mb-6">AI/ML Engineer & Data Scientist</div>
             
-            {/* CV Link */}
-            <p className="text-lg">
-              <a href="https://drive.google.com/file/d/1nPKeQh3vA6i1r9Y7UAyB01PZjVLt4q8M/view" target="_blank" className="text-blue-500 font-bold hover:underline">
-                Download CV
-              </a>
+            <p className="mb-8 leading-relaxed">
+              Passionate about crafting data-driven solutions, I'm an AI/ML enthusiast skilled in machine learning, computer vision, and deep learning. With a proven track record, I've developed and implemented advanced algorithms to tackle intricate challenges. Actively seeking opportunities as a Machine Learning Intern or Engineer, my expertise includes TensorFlow, OpenCV, Python, and more. In my recent role as AI/ML Lead at JU MakerSpace, I orchestrated forums on AI and computer vision, contributing to structured frameworks. A B.Tech graduate in Computer Science and Engineering from JECRC University, my project highlights include accurate Anemia detection, robust Tumor Segmentation using CNNs, and successful implementation of BERT for text classification. Currently exploring roles as an ML Engineer, Computer Vision Engineer, AI Engineer, or Deep Learning Engineer, I am open to internships in related domains. Let's connect and discuss how my skills can contribute to your team's success in the dynamic field of AI and ML.
             </p>
+
+            <div className="space-y-3 mb-8">
+              <div className="grid grid-cols-2 gap-4">
+                <div>
+                  <span className="text-gray-400">Birthday:</span>
+                  <span className="ml-2 text-white">March 25, 2002</span>
+                </div>
+                <div>
+                  <span className="text-gray-400">Phone:</span>
+                  <span className="ml-2 text-white">+91 7976504161</span>
+                </div>
+              </div>
+              <div className="grid grid-cols-2 gap-4">
+                <div>
+                  <span className="text-gray-400">Email:</span>
+                  <span className="ml-2 text-white">work.hemang@gmail.com</span>
+                </div>
+              </div>
+            </div>
+
+            <Button className="bg-yellow-500 hover:bg-yellow-600 text-slate-900">
+              <Download className="mr-2" size={18} />
+              Download CV
+            </Button>
           </div>
-        </motion.div>
+        </div>
       </div>
     </section>
   );
-};
+}

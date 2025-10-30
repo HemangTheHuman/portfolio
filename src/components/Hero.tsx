@@ -1,78 +1,58 @@
-import { motion } from "framer-motion";
-import { Github, Twitter, Linkedin, FileText, Mail } from "lucide-react";
+import { Github, Linkedin, Twitter } from 'lucide-react';
 
-export const Hero = () => {
+export function Hero() {
   return (
-    <section className="min-h-screen flex items-center justify-center section-padding bg-white">
-      <div className="text-center max-w-4xl mx-auto px-6">
-        <motion.span
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.5 }}
-          className="text-sm md:text-base text-primary/80 uppercase tracking-[0.2em] font-medium"
-        >
-          Welcome to my portfolio
-        </motion.span>
-        <motion.h1
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.5, delay: 0.2 }}
-          className="text-5xl md:text-7xl font-bold mt-6 mb-8 bg-gradient-to-r from-primary via-primary/90 to-primary/80 bg-clip-text text-transparent"
-        >
-          Hi, I'm Hemang Joshi 
-        </motion.h1>
-        <motion.p
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.5, delay: 0.4 }}
-          className="text-lg md:text-xl text-muted-foreground max-w-2xl mx-auto mb-12 leading-relaxed"
-        >
-           Data Scientist & Generative AI Enthusiast building intelligent automation systems with Data Science, Computer Vision, and Generative AI — turning complex data into impactful solutions.
-        </motion.p>
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.5, delay: 0.6 }}
-          className="flex flex-wrap justify-center gap-4"
-        >
-          <a
-            href="mailto:work.hemang@gmail.components"
-            className="inline-flex items-center bg-gray-200 text-black px-8 py-4 rounded-full hover:shadow-lg transition-all duration-300 hover:-translate-y-1"
+    <section 
+      id="home" 
+      className="min-h-screen flex items-center justify-center relative"
+      style={{
+        backgroundImage: 'url(https://images.unsplash.com/photo-1519681393784-d120267933ba?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxtb3VudGFpbiUyMG5pZ2h0JTIwc2t5fGVufDF8fHx8MTc2MTgxNDY1NHww&ixlib=rb-4.1.0&q=80&w=1080&utm_source=figma&utm_medium=referral)',
+        backgroundSize: 'cover',
+        backgroundPosition: 'center',
+      }}
+    >
+      {/* Dark overlay */}
+      <div className="absolute inset-0 bg-slate-900/80"></div>
+      
+      {/* Content */}
+      <div className="relative z-10 text-center px-4">
+        <h1 className="text-white mb-4">
+          Hi, I am <span className="text-yellow-500">Hemang Joshi</span>
+        </h1>
+        <p className="text-gray-300 max-w-2xl mx-auto mb-8">
+          AI/ML Engineer & Data Scientist specializing in building intelligent systems 
+          that transform data into actionable insights. I develop cutting-edge machine learning 
+          models and deploy scalable AI solutions.
+        </p>
+        
+        {/* Social Links */}
+        <div className="flex items-center justify-center gap-4">
+          <a 
+            href="https://github.com/HemangTheHuman" 
             target="_blank" 
             rel="noopener noreferrer"
+            className="w-10 h-10 rounded-full border border-gray-600 flex items-center justify-center text-gray-300 hover:text-yellow-500 hover:border-yellow-500 transition-colors"
           >
-            <Mail className="mr-2 h-5 w-5 text-black" />
-            Gmail
+            <Github size={20} />
           </a>
-          <a
-            href="https://www.linkedin.com/in/hemang-joshi-2030/"
-            className="inline-flex items-center bg-gray-200 text-black px-8 py-4 rounded-full hover:shadow-lg transition-all duration-300 hover:-translate-y-1"
+          <a 
+            href="https://x.com/HemangTheHuman" 
             target="_blank" 
             rel="noopener noreferrer"
+            className="w-10 h-10 rounded-full border border-gray-600 flex items-center justify-center text-gray-300 hover:text-yellow-500 hover:border-yellow-500 transition-colors"
           >
-            <Linkedin className="mr-2 h-5 w-5 text-black" />
-            LinkedIn
+            <Twitter size={20} />
           </a>
-          <a
-            href="https://x.com/HemangTheHuman"
-            className="inline-flex items-center bg-gray-200 text-black px-8 py-4 rounded-full hover:shadow-lg transition-all duration-300 hover:-translate-y-1"
+          <a 
+            href="https://www.linkedin.com/in/hemang-joshi-2030" 
             target="_blank" 
             rel="noopener noreferrer"
+            className="w-10 h-10 rounded-full border border-gray-600 flex items-center justify-center text-gray-300 hover:text-yellow-500 hover:border-yellow-500 transition-colors"
           >
-            <Twitter className="mr-2 h-5 w-5 text-black" />
-            Twitter
+            <Linkedin size={20} />
           </a>
-          <a
-            href="https://github.com/HemangTheHuman"
-            className="inline-flex items-center bg-gray-200 text-black px-8 py-4 rounded-full hover:shadow-lg transition-all duration-300 hover:-translate-y-1"
-            target="_blank" 
-            rel="noopener noreferrer"
-          >
-            <Github className="mr-2 h-5 w-5 text-black" />
-            GitHub
-          </a>
-        </motion.div>
+        </div>
       </div>
     </section>
   );
-};
+}

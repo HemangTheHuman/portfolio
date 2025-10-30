@@ -1,59 +1,71 @@
-import { motion } from "framer-motion";
+import { Brain, LineChart, Database, Code2, Cpu, FlaskConical } from 'lucide-react';
+import { Card, CardContent } from './ui/card';
 
-const skills = [
-  "TensorFlow",
-  "PyTorch",
-  "OpenCV",
-  "Kafka",
-  "AWS",
-  "Azure",
-  "OpenAI",
-  "Ollama",
-  "Hugging Face",
-  "MongoDB",
-  "Django",
-  "SQL",
-  "Flask", 
-  "Python",
-  "Git",
-  
-];
+export function Skills() {
+  const services = [
+    {
+      icon: Brain,
+      title: 'Machine Learning',
+      description: 'Developing supervised and unsupervised learning models using scikit-learn, XGBoost, and ensemble methods.',
+    },
+    {
+      icon: Cpu,
+      title: 'Deep Learning',
+      description: 'Building neural networks with PyTorch and TensorFlow for computer vision, NLP, and time series analysis.',
+    },
+    {
+      icon: LineChart,
+      title: 'Data Analysis',
+      description: 'Statistical analysis, exploratory data analysis, and creating insightful visualizations with Python and R.',
+    },
+    {
+      icon: Database,
+      title: 'Big Data Processing',
+      description: 'Processing large-scale datasets using Apache Spark, distributed computing, and cloud data platforms.',
+    },
+    {
+      icon: FlaskConical,
+      title: 'MLOps & Deployment',
+      description: 'Deploying ML models to production with Docker, Kubernetes, MLflow, and cloud services (AWS, GCP).',
+    },
+    {
+      icon: Code2,
+      title: 'Data Engineering',
+      description: 'Building ETL pipelines, data warehouses, and ensuring data quality for ML applications.',
+    },
+  ];
 
-export const Skills = () => {
+
+
   return (
-    <section id="skills" className="section-padding bg-gradient-to-br from-secondary/5 via-background to-secondary/5">
-      <div className="max-w-4xl mx-auto">
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.5 }}
-          viewport={{ once: true }}
-        >
-          {/* Container for centering text */}
-          <div className="flex flex-col items-center justify-center text-center">
-            <span className="text-sm text-primary/80 uppercase tracking-[0.2em] font-medium">
-              Skills
-            </span>
-            <h2 className="text-3xl md:text-4xl font-bold mt-4 mb-12 bg-gradient-to-r from-primary via-primary/90 to-primary/80 bg-clip-text text-transparent">
-              Tools and Technology
-            </h2>
-          </div>
-        </motion.div>
-        <div className="grid grid-cols-2 md:grid-cols-3 gap-6">
-          {skills.map((skill, index) => (
-            <motion.div
-              key={skill}
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.5, delay: index * 0.1 }}
-              viewport={{ once: true }}
-              className="bg-secondary/10 backdrop-blur-sm border border-secondary/20 p-6 rounded-xl text-center hover:shadow-lg transition-all duration-300 hover:-translate-y-1"
-            >
-              <span className="font-medium text-foreground">{skill}</span>
-            </motion.div>
-          ))}
+    <section id="skills" className="py-20 bg-slate-800">
+      <div className="container mx-auto px-4">
+        {/* Section Header */}
+        <div className="text-center mb-16">
+          <h2 className="text-yellow-500 mb-2 tracking-wider">SKILLS & EXPERTISE</h2>
+          <div className="w-20 h-1 bg-yellow-500 mx-auto"></div>
+        </div>
+
+        {/* Services Grid */}
+        <div className="grid md:grid-cols-3 gap-6 max-w-6xl mx-auto mb-20">
+          {services.map((service, index) => {
+            const Icon = service.icon;
+            return (
+              <Card key={index} className="bg-slate-900 border-slate-700 hover:border-yellow-500 transition-colors group">
+                <CardContent className="p-6 text-center">
+                  <div className="w-16 h-16 rounded-full bg-slate-800 flex items-center justify-center mx-auto mb-4 group-hover:bg-yellow-500 transition-colors">
+                    <Icon className="text-yellow-500 group-hover:text-slate-900 transition-colors" size={28} />
+                  </div>
+                  <h4 className="text-white mb-3">{service.title}</h4>
+                  <p className="text-gray-400 leading-relaxed">
+                    {service.description}
+                  </p>
+                </CardContent>
+              </Card>
+            );
+          })}
         </div>
       </div>
     </section>
   );
-};
+}
